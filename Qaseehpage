@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khas untuk Qaseeh</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Quicksand", sans-serif;
+      background: linear-gradient(135deg, #f6d365, #fda085, #fbc2eb, #a1c4fd);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+      color: #333;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 20px;
+      overflow: hidden;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #222;
+      position: relative;
+      z-index: 1;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.8em;
+      margin-bottom: 40px;
+      max-width: 700px;
+      color: #333;
+      position: relative;
+      z-index: 1;
+    }
+
+    button {
+      background: #fff;
+      color: #444;
+      border: none;
+      padding: 14px 28px;
+      font-size: 1em;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+    button:hover {
+      background: #f6f6f6;
+      transform: translateY(-2px);
+    }
+
+    /* Falling flowers */
+    .flower {
+      position: absolute;
+      top: -50px;
+      font-size: 20px;
+      opacity: 0.9;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Khas Buat Qaseeh 🌸</h1>
+  <p>
+    Hidup ini penuh warna — kadang manis, kadang mencabar.  
+    Jangan pernah rasa awak keseorangan; awak sentiasa ada kekuatan yang hebat dalam diri awak.  
+    Dan saya… saya akan sentiasa ada, tunggu, dan support awak dalam setiap langkah awak. 💛
+  </p>
+
+  <button onclick="downloadImage()">📥 Muat Turun Gambar</button>
+
+  <script>
+    function downloadImage() {
+      const link = document.createElement('a');
+      link.href = "https://drive.google.com/uc?export=download&id=1EpVna4nP9rt9KHra1RFdAwW9HoaDQVae";
+      link.download = "qaseeh.png"; 
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // Create falling flowers
+    function createFlower() {
+      const flower = document.createElement('div');
+      flower.classList.add('flower');
+      // boleh mix bunga
+      const flowers = ['🌸','🌺','🌼'];
+      flower.innerHTML = flowers[Math.floor(Math.random()*flowers.length)];
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.fontSize = Math.random() * 20 + 15 + 'px';
+      flower.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      document.body.appendChild(flower);
+
+      setTimeout(() => {
+        flower.remove();
+      }, 10000);
+    }
+
+    setInterval(createFlower, 700);
+  </script>
+</body>
+</html>
